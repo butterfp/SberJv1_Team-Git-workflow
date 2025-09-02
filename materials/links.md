@@ -17,14 +17,14 @@
 - https://habr.com/ru/articles/795635/
 - https://git-lfs.com/
 
-### Основные модели ветвления: git flow, github flow, gitlab flow, trunk based
+### Основные модели ветвления: GitFlow, GitHub flow, GitLab flow, Trunk Based
 
 - https://github.com/SergeFocus/git-flow
 - https://docs.github.com/ru/get-started/using-github/github-flow
 - https://www.geeksforgeeks.org/git/introduction-to-gitlab-flow/
 - https://martinfowler.com/articles/branching-patterns.html
 
-### best practices по commit messages
+### Best practices по commit messages
 
 - https://www.baeldung.com/ops/git-commit-messages
 - https://www.conventionalcommits.org/en/v1.0.0/#summary
