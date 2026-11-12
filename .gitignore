@@ -130,9 +130,6 @@ Mkfile.old
 Makefile.old
 dkms.conf
 
-# Java
-*.class
-
 # Maven
 target/
 
@@ -149,3 +146,10 @@ build/
 
 # Environment
 .env
+
+# Java compiled files
+*.class
+*.jar
+*.war
+*.ear
+
