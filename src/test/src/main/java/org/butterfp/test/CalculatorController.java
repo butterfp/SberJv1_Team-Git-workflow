@@ -116,4 +116,8 @@ public class CalculatorController {
         return number * percent / 100.0;
     }
 
+    @GetMapping("/memory/current")
+    public double getCurrentMemoryValue() {
+        return memory;
+    }
 }
