@@ -60,4 +60,42 @@ public class CalculatorController {
 
         return Math.log10(number);
     }
+
+    @GetMapping("/sin")
+    public double sin(@RequestParam double angle) {
+        if (!Double.isFinite(angle)) {
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST,
+                    "Угол должен быть конечным числом"
+            );
+        }
+
+        return Math.sin(angle);
+    }
+
+    @GetMapping("/cos")
+    public double cos(@RequestParam double angle) {
+        if (!Double.isFinite(angle)) {
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST,
+                    "Угол должен быть конечным числом"
+            );
+        }
+
+        return Math.cos(angle);
+    }
+
+    @GetMapping("/tg")
+    public double tg(@RequestParam double angle) {
+        if (!Double.isFinite(angle)
+                || Math.abs(Math.cos(angle)) < 1e-12) {
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST,
+                    "Тангенс не определён для данного угла"
+            );
+        }
+
+        return Math.tan(angle);
+    }
+
 }
