@@ -81,4 +81,74 @@ class CalculatorControllerTest {
                 "Логарифм нуля не определён"
         );
     }
+
+    @Test
+    void sinOfZeroReturnsZero() {
+        assertEquals(
+                0.0,
+                controller.sin(0),
+                1e-9,
+                "Синус нуля должен равняться нулю"
+        );
+    }
+
+    @Test
+    void sinOfHalfPiReturnsOne() {
+        assertEquals(
+                1.0,
+                controller.sin(Math.PI / 2),
+                1e-9,
+                "Синус PI/2 должен равняться единице"
+        );
+    }
+
+    @Test
+    void cosOfZeroReturnsOne() {
+        assertEquals(
+                1.0,
+                controller.cos(0),
+                1e-9,
+                "Косинус нуля должен равняться единице"
+        );
+    }
+
+    @Test
+    void cosOfPiReturnsMinusOne() {
+        assertEquals(
+                -1.0,
+                controller.cos(Math.PI),
+                1e-9,
+                "Косинус PI должен равняться минус единице"
+        );
+    }
+
+    @Test
+    void tgOfQuarterPiReturnsOne() {
+        assertEquals(
+                1.0,
+                controller.tg(Math.PI / 4),
+                1e-9,
+                "Тангенс PI/4 должен равняться единице"
+        );
+    }
+
+    @Test
+    void tgOfHalfPiThrowsException() {
+        assertThrows(
+                ResponseStatusException.class,
+                () -> controller.tg(Math.PI / 2),
+                "Тангенс PI/2 не определён"
+        );
+    }
+
+    @Test
+    void sinRejectsNaN() {
+        assertThrows(
+                ResponseStatusException.class,
+                () -> controller.sin(Double.NaN),
+                "NaN не должен приниматься как угол"
+        );
+    }
+
+
 }
