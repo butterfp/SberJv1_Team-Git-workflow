@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class CalculatorController {
     @GetMapping("/add")
     public int add(@RequestParam int a, @RequestParam int b) {
-        return a - b;
+        return a + b;
     }
 }
