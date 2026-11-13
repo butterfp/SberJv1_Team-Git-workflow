@@ -3,6 +3,7 @@ package org.butterfp.test;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
@@ -96,6 +97,14 @@ public class CalculatorController {
         }
 
         return Math.tan(angle);
+    }
+
+    private double memory = 0.0;
+
+    @PostMapping("/memory/save")
+    public double saveToMemory(@RequestParam double value) {
+        memory = value;
+        return memory;
     }
 
 }
