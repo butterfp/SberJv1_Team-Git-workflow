@@ -2,6 +2,12 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '4.1.2'
     id 'io.spring.dependency-management' version '1.1.7'
+    id 'pmd'
+}
+
+pmd {
+    consoleOutput = true
+    ruleSets = ['category/java/bestpractices.xml']
 }
 
 group = 'org.butterfp'
