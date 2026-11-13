@@ -97,5 +97,27 @@ public class CalculatorController {
 
         return Math.tan(angle);
     }
+    private double memory = 0.0;
 
+    @PostMapping("/memory/save")
+    public double saveToMemory(@RequestParam double value) {
+        memory = value;
+        return memory;
+    }
+
+    @GetMapping("/memory/read")
+    public double readFromMemory() {
+        return memory;
+    }
+
+    @GetMapping("/percentage")
+    public double percentage(@RequestParam double number,
+                             @RequestParam double percent) {
+        return number * percent / 100.0;
+    }
+
+    @GetMapping("/memory/current")
+    public double getCurrentMemoryValue() {
+        return memory;
+    }
 }

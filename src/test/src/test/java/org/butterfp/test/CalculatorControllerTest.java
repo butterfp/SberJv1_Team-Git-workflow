@@ -150,5 +150,39 @@ class CalculatorControllerTest {
         );
     }
 
+    @Test
+    @DisplayName("Расчёт процента от числа")
+    void percentageTest() {
+        assertEquals(25.0, controller.percentage(200, 12.5), 0.0001,
+                "Должен вычисляться процент от числа");
+    }
+
+    @Test
+    @DisplayName("Расчёт нулевого процента")
+    void percentageZeroTest() {
+        assertEquals(0.0, controller.percentage(200, 0), 0.0001,
+                "Нулевой процент должен давать ноль");
+    }
+
+    @Test
+    @DisplayName("Расчёт ста процентов")
+    void percentageHundredTest() {
+        assertEquals(200.0, controller.percentage(200, 100), 0.0001,
+                "Сто процентов должны возвращать исходное число");
+    }
+
+    @Test
+    @DisplayName("Расчёт отрицательного процента")
+    void percentageNegativeTest() {
+        assertEquals(-20.0, controller.percentage(200, -10), 0.0001,
+                "Отрицательный процент должен обрабатываться корректно");
+    }
+
+    @Test
+    @DisplayName("Расчёт дробного процента")
+    void percentageFractionTest() {
+        assertEquals(2.5, controller.percentage(100, 2.5), 0.0001,
+                "Дробный процент должен вычисляться корректно");
+    }
 
 }
