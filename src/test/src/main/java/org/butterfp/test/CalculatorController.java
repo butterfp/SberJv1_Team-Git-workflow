@@ -50,18 +50,14 @@ public class CalculatorController {
     }
 
     @GetMapping("/logarithm")
-    public double logarithm(@RequestParam double value, @RequestParam double base) {
-        if (!Double.isFinite(value)
-                || !Double.isFinite(base)
-                || value <= 0
-                || base <= 0
-                || base == 1) {
+    public double logarithm(@RequestParam double number) {
+        if (!Double.isFinite(number) || number <= 0) {
             throw new ResponseStatusException(
                     HttpStatus.BAD_REQUEST,
-                    "Некорректные аргументы логарифма"
+                    "Аргумент логарифма должен быть положительным числом"
             );
         }
 
-        return Math.log(value) / Math.log(base);
+        return Math.log10(number);
     }
 }
