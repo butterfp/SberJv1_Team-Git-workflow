@@ -36,4 +36,16 @@ public class CalculatorController {
 
         return a % b;
     }
+
+    @GetMapping("/divide")
+    public double divide(@RequestParam double a, @RequestParam double b) {
+        if (b == 0) {
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST,
+                    "Деление на ноль запрещено"
+            );
+        }
+
+        return a / b;
+    }
 }
